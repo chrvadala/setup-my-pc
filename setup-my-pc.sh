@@ -25,6 +25,7 @@ echo '*********************** setup aws ***********************'
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+complete -C '/usr/local/bin/aws_completer' aws
 
 echo -e '\n\n\n*********************** setup completed ***********************'
 echo "nvm: $(nvm --version)"
