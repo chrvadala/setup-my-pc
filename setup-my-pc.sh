@@ -21,9 +21,15 @@ sudo mkdir -p /usr/local/bin/
 sudo install minikube /usr/local/bin/
 rm minikube
 
+echo '*********************** setup aws ***********************'
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 echo -e '\n\n\n*********************** setup completed ***********************'
 echo "nvm: $(nvm --version)"
 echo "node: $(node -v)"
 echo "yarn: $($HOME/.yarn/bin/yarn -v)"
 echo "docker: $(docker -v)"
 echo "minikube: $(minikube version --short)"
+echo "aws: $(aws --version)"
