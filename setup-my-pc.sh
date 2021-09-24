@@ -14,6 +14,15 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 rm get-docker.sh
 
+echo '*********************** setup docker compose ***********************'
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+echo '*********************** setup kubectl ***********************'
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
 echo '*********************** setup minikube ***********************'
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
@@ -32,5 +41,7 @@ echo "nvm: $(nvm --version)"
 echo "node: $(node -v)"
 echo "yarn: $($HOME/.yarn/bin/yarn -v)"
 echo "docker: $(docker -v)"
+echo "docker-compose: $(docker-compose --version)"
+echo "kubectl: $(kubectl version --client)"
 echo "minikube: $(minikube version --short)"
 echo "aws: $(aws --version)"
