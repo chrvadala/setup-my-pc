@@ -24,6 +24,7 @@ This script installs the following tools:
 
 | Tool           | Description                 | Ref.                                    |
 |----------------|-----------------------------|-----------------------------------------|
+| nvm            | Node.js version manager     | https://github.com/nvm-sh/nvm           |
 | yarn           | Node.js package manager     | https://yarnpkg.com/                    |
 | docker         | Container engine            | https://www.docker.com/                 |
 | docker-compose | Container orchestrator      | https://docs.docker.com/compose/        |
