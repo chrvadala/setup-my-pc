@@ -6,9 +6,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source $HOME/.nvm/nvm.sh
 nvm install node
 
-echo '*********************** setup yarn ***********************'
-curl -o- -L https://yarnpkg.com/install.sh | bash
-
 echo '*********************** setup docker ***********************'
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -40,7 +37,6 @@ complete -C '/usr/local/bin/aws_completer' aws
 echo -e '\n\n\n*********************** setup completed ***********************'
 echo "nvm: $(nvm --version)"
 echo "node: $(node -v)"
-echo "yarn: $($HOME/.yarn/bin/yarn -v)"
 echo "docker: $(docker -v)"
 echo "docker-compose: $(docker-compose --version)"
 echo "kubectl: $(kubectl version --client)"
