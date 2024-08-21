@@ -7,7 +7,7 @@
 
 # Prequisite
 ```sh
-sudo apt install -y curl wget git
+sudo apt install -y curl wget git unzip uidmap
 ```
 
 # Usage
