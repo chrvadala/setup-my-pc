@@ -5,11 +5,6 @@
 [![chrvadala](https://img.shields.io/badge/website-chrvadala-orange.svg)](https://chrvadala.github.io)
 [![Donate](https://img.shields.io/badge/donate-PayPal-green.svg)](https://www.paypal.me/chrvadala/25)
 
-# Prequisite
-```sh
-sudo apt install -y curl wget git unzip uidmap
-```
-
 # Usage
 
 ```bash
@@ -27,7 +22,6 @@ This script installs the following tools:
 | nvm            | Node.js version manager     | https://github.com/nvm-sh/nvm           |
 | yarn           | Node.js package manager     | https://yarnpkg.com/                    |
 | docker         | Container engine            | https://www.docker.com/                 |
-| docker-compose | Container orchestrator      | https://docs.docker.com/compose/        |
 | kubectl        | Kubenetes admin tool        | https://kubernetes.io/docs/tasks/tools/ |
 | minikube       | Basic Kubernetes stack      | https://minikube.sigs.k8s.io/docs/      |
 | awscli         | Command line AWS admin tool | https://aws.amazon.com/it/cli/          |

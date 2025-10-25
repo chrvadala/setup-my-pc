@@ -1,20 +1,28 @@
 #!/bin/bash
 set -e
 
+if [ "$EUID" -eq 0 ]; then
+  echo "This script must NOT be run as root. Please run as a normal user."
+  exit 1
+fi
+
+if command -v apt &> /dev/null; then
+    echo "Detected apt available"
+    sudo apt update
+    sudo apt install -y curl wget git unzip uidmap nmap net-tools
+fi
+
 echo '*********************** setup nvm ***********************'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source $HOME/.nvm/nvm.sh
-nvm install node
+nvm install --lts
+nvm install-latest-npm
 
 echo '*********************** setup docker ***********************'
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 rm get-docker.sh
 dockerd-rootless-setuptool.sh install
-
-echo '*********************** setup docker compose ***********************'
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
 
 echo '*********************** setup kubectl ***********************'
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -38,7 +46,6 @@ echo -e '\n\n\n*********************** setup completed ***********************'
 echo "nvm: $(nvm --version)"
 echo "node: $(node -v)"
 echo "docker: $(docker -v)"
-echo "docker-compose: $(docker-compose --version)"
 echo "kubectl: $(kubectl version --client)"
 echo "minikube: $(minikube version --short)"
 echo "aws: $(aws --version)"
